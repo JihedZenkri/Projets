@@ -1,0 +1,7 @@
+La creation des plugin dans analyzer est la suivante:
+
+	Deja, faut savoir à quoi nous servent tous les plugins qu'on va créer. Les plugins en général sont des additions du software qui vont nous permettre d'avoir une interface plus modifiable, et sont souvent utilisés pour les applications et les pages web.
+	
+	Les plugins que le code crée sont des plugins qui comptent les commits par personne, et ce qu'il faut compredre c'est exatement la nature de ces plugins est la chose qui va donner de la dynamique au code executé.
+	
+	Les plugins seront facilement modifiés au fur et à mesure pour ajouter de nouvelles options au produit final. Pour l'instant, Analyzer crée une liste des plugins (voir la documentation du ficher Analyzer) et chaque plugin a un nom et le nombre de configuration. Vu que le code n'a pas encore été modifié, la nature complète et son potentiel est assez flou, mais pour l'instant le code fait appel à cette liste et la renvoie sous une forme du code html, que l'on voit après l'execution du code. 

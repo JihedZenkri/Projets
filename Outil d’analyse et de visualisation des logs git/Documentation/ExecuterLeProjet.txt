@@ -1,0 +1,37 @@
+-------------------------------------------------------------------------------------------------------------
+
+Ce Projet utilise un programme nommé Gradle pour compiler et executer le projet.
+
+-------------------------------------------------------------------------------------------------------------
+
+La commande pour compiler est :
+./gradlew build
+
+Tout les .java du projet seront alors compilés en .class dans des dossier 
+build dont la location de chacun dépends du fichier .java compilé.
+
+Ces fichiers sont vraiment difficiles à retirer et ne doivent pas être rendu,
+donc essayez de copier votre progression avant de faire un "./gradlew build".
+Et essayez de ne pas merge ces fichiers à la branche principale.
+Si nécessaire je mettrai une commande permettant de nettoyer ces fichiers.
+
+Lorsque la commande build est effectué elle indique si la compilation a raté et pour quelle classe.
+De plus elle effectue des tests basiques pour savoir si le code est executable.
+(J'ai essayé de modifier certaines choses, elles ont toujours été remarquées sans même exécuter le logiciel)
+
+-------------------------------------------------------------------------------------------------------------
+
+Pour éxécuter le programme il faut utiliser :
+./gradlew run --args='arguments que prends en paramètre notre programme'
+
+Pour l'instant le programme affiche du html en réponse à la commande.
+
+
+Le premier argument est un chemin où éxécuter le programme.
+La description des autres arguments viendra plus tard (avec la documentation du dossier CLI)
+mais voici des exemples d'éxecutions :
+
+./gradlew run --args='. --addPlugin=countCommits'
+
+
+(Pour l'instant y en a qu'un seul qui marche on est censé faire les autres)

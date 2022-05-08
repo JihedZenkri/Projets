@@ -1,0 +1,74 @@
+//FICHIER AnalyzerPlugin.java
+
+	  Ceci est une interface "Result" de Java qui contient des fonction vides qui seront implementées dans le fichier CountCommitsPerAuthorPlugin.java. 
+	  On peut supposer le fonctionnement des fonctions suivantes:
+	  
+	      String  getResultAsString();
+	      String  getResultAsHtmlDiv();
+	      
+	  Qui vont forcement servir pour nous envoyer differents types de code (chaine de caracteres ou code html) qui sera implementé.
+
+	  La fonction run() va executer le code (comme on va le voir dans le fichier suivant), mais la focntion n'est pas complétée encore, donc ceci est juste une idée.
+
+
+//FICHIER AnalyzerResult.java
+	
+	Dans cette classe, on va empiler les resultats obetenus grâce aux fonctions de l'interface "Result". 
+	Cette 	classe contient un constructeur, dont on connaît la fonction, ainsi qu'un objet final de type liste chaînée 
+	des AnalyzerPlugin.Result (empilement des résultats).
+	------------------------------------------------------------------------------
+	On a un getter getSubResults(), son rôle est assez intuitif.
+	------------------------------------------------------------------------------
+	"public String toString()" est la première fnction que l'on doit étudier. 
+	
+	Cette fonction utilise la fonction  "stream()" qui premierement fait l'appel à "map()" qui va prendre la 		
+	liste chaînée "subResults" et la transformer en une chaîne de caractères en faisant l'appel à la fonction 		
+	"String  getResultAsString()" de l'interface "Result".
+	
+	 Sur cette nouvelle chaîne de caractères elle fait l'appel de la fonction "reduce()" qui va prendre une 		
+	 chaîne vide, un acc ("accumulator"= la dernière valeure prise par la fonction) et "cur" (la valeur 		  	
+	 courante prise par la fonction") pour les concatener (i.e. reduce) en une simple chaîne de caractères.
+	 ------------------------------------------------------------------------------
+	 "public String toHTML()" fera exactement la même chose que la fonction précédente, seulement cette 	
+	 fois-ci, le resultat sera renvoyé sous la forme HTML i.e. <html><body>******</body></html> 
+	
+
+
+//FICHIER CountCommitsPerAuthorPlugin.java 
+
+	Cette classe contient deux objets, Configuration configuration et Result result; elle implemente l'interface 	"AnalyzerPlugin". Elle contient aussi une classe statique "Result".
+	 ------------------------------------------------------------------------------
+	A part les getters:
+		getResult()* qui execute le code si result==null (appel à la fonction run())
+	 dont on connaît le rôle, les fonctions que l'on doit étudier pour mieux comprendre le code sont
+	  ------------------------------------------------------------------------------
+	 Result ProcessLog(List<Commit> gitLog) qui va prendre une liste chaînées des commits (voir 		
+	 gtirawdata docu pour plus d'informations sur ce type d'objets) et va inserer dans la map 			
+	 commitsPerAuthor. Au cas où author n'a pas de valeur (nombre de tâches faites) 			
+	 associée à lui, elle sera initialisée à 0. Sinon, sa valeur sera incrementée de 1.
+	  ------------------------------------------------------------------------------
+	 Dans la classe statique "Results", on s'intéresse à la fonction "String getResultAsHtmlDiv()" 
+	 qui renvoie 	une liste html de tâches faites par des auteurs sous une forme <div></div> de html. 
+	 
+	 Par exemple     Titi:3
+	  ------------------------------------------------------------------------------
+	On a aussi une fonction "String getResultAsString()" dont la fonctionnalité est intuitive.
+	
+	
+//FICHIER Analyzer.java
+	  
+	  Ici, la fonction principale est "AnalyzerResults computeResults()" qui va juste prendre la map des 	
+	  config, créer un plugin à partir de ça et l'ajouter à la liste chaînée des plugins. Elle va tester tous les 	
+	  plugins créés et renvoyer un nouvel AnalyzerResult en appelant les fonction stream(), map() [qui va 	
+	  prendre les informations de AnalyzerPlugin et les transformer en un objet de type Result] et collect() 
+	  pour les compresser sous forme d'une liste chaînée de Results.
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  

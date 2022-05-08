@@ -1,0 +1,64 @@
+Fichier CommitBuilder.java
+
+5 attributs de type String:
+id, author, date, description et mergedFrom.
+
+Un constructeur d'objet CommitBuilder qui initialise seulement l'id.
+Des fonctions setAuthor, setDate, setDescription, setMergedFrom (intuitif).
+ 
+Et enfin une fonction CreateCommit() qui  cree et renvoie un objet de type Commit (voir apres).
+
+
+ Fichier Commit.java:
+
+Un constructeur d'objet Commit qui assign 5 characteristiques de type String:
+-date
+-id
+-author 
+-description
+-merged from
+
+1. Fonction parseCommit qui prend un objet de type BufferReader (imput) en entrée et renvoie un objet de type Optional<Commit>.
+La classe BufferReader sert a lire des textes à partir d'un flux d'entrée de caractères.
+Elle lit tout d'abord via la methode .Readline() le contenu du BufferReader imput puis realise et serie d'etape pour s'éparer:
+- l'id 
+Elle cree un objet de type CommitBuilder de nom  builder (via le constructeur (1)).
+Puis elle continue a explorer le contenu de imput pour extraire :
+- le nom de lauteur
+- la date
+- Merge
+Elle assigne les differents attributs tout juste retirer a builder
+puis extrait la description et lassigne aussi a l'objet . (via les fonction set..())
+
+Via la fonction createCommit() et builder elle cree un objet de type Commit.
+
+Enfin elle retourne l'objet de type Optional qui l'objet de type Commit.
+
+La fonction parseCommit() sert donc a extraire des informations pour  creer des objet de type Commit.
+
+2.Fonction parseLog qui prend aussi un objet de type BufferReader (de nom reader ) et renvoie une liste de Commit List<Commit>.
+Elle crée un objet de type Arraylist<Commit>(cad un tableau a taille non fixe de commit> et 
+un objet de type Optional<Commit> qui va prendre la valeur de parseCommit(reader).
+Ensuite via une boucle while, elle ajoute un a un dans larraylist  le contenu de chaque objet optional 
+qui contient des Commit. Puis elle renvoit lArraylist de Commit.
+
+La fonction parseLog permet de stocker une liste de Commit differend contenu dans le BufferReader. 
+
+3.Fonction parseLogFromCommand() qui prend en entree un objet de type Path (de nom gitPath), cad un chemin 
+d'acces a un fichier et renvoie une List<Commit>.
+Sa seule utilite est de transformer le chemin  dacces Path en objet BufferReader pour pouvoir ensuite 
+lui applique la fonction parsLog() ( et donc de renvoyer une liste de Commit).
+
+4. Fonction StringToString() pour afficher les characteristiques dun objet de type Commit;
+
+5. Fonction parsError() pour evacuer les potentielles exceptions(erreur) qui peuvent arriver avec "throw new RuntimeException".
+
+
+Fichier TestCommit.java
+
+Fichier moins interessant puisqu'il contient 2 fonctions testParseCommit() et testParseLog() qui comme 
+leurs noms l'indiquent test les 2 fonctions.
+
+Fichier git.log 
+Cest le fichier ou ya les differentes informations sur les Commit ou on extrait les choses pour cree les objets et 
+le tableau de Commit.

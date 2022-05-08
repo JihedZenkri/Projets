@@ -1,0 +1,40 @@
+Notre programme commence par appeler le main du fichier CLILauncher.java
+
+CLILAuncher.java :
+
+	Parcours les args donné au programme et créé un PluginConfig pour chacun, créé ainsi une 'Map'
+	de PluginConfig et String. la classe Plugin est définie dans PluginConfig.java (dossier config)
+
+	PluginConfig.java :
+		Pour l'instant une classe vide.
+		Elle pourrait regroupes les attributs que tous les plugins ont en commun.
+	
+	Créer un objet config de la classe Configuration du fichier Configuration.java
+
+	Configuration.java :
+		Contient un attribut de type 'Path'
+		Et une Map de Plugin et String
+
+	Créé un objet Analyzer avec la Configuration pour l'initialiser.
+
+	Analyzer.java :
+
+		Contient un attribut Configuration et un attribut de la classe AnalyzerResult.
+		Récupère les PluginConfig de configuration et transforme les en AnalyzerPlugin
+
+		AnalyzerPlugin.java :
+			Une interface sur laquelle se base les Plugin.
+
+		Les AnalyzerPlugin sont ensuite transformés en leur plugin respectif selon le String associé.
+		Pour chaque plugin, Analyzer.java appelle leur méthode run()
+
+		ChaquePlugin.java :
+			Font ce qu'ils ont a faire en utilisant les fonctions de gitrawdata
+			Et le stockent en 'subresult'.
+
+		Analyzer.java stocke ces subresult dans son attribut de classe AnalyzerResult.
+
+		AnalyzerResult.java :
+			Contient des méthodes pour transformer ces résultat en une seule String lisible.
+
+	CLILauncher ensuite récupère ces résultats et le println.

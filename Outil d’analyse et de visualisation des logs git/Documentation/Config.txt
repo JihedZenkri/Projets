@@ -1,0 +1,29 @@
+1.Configuration.java
+
+-Tout d'abord, on doit savoir le type Map . C'est un objet qui prend k comme un clé et v comme la valeur . 
+on peut illustrer Map<String,int> m comme : 
+a-->1
+b-->2
+c-->3 
+
+-on doit connaitre aussi le type Path . C'est un outil pour exmainer et manipuler les fichiers . 
+
+Dans la cette class On a:
+* l'objet gitPath de type Path 
+ *L'objet plugins de type map . 
+
+-Plugins possède String comme la clé et PluginsConfig comme la valeur .(On doit définir PluginConfig dans PluginConfig.java). 
+
+-le Constructeur Configuration associe le gitPath à gitPath . Quand à plugins, il prend un copy de plugins.
+Une copie i.e on peut modifier la copie (modifier les valeurs ) sans agir sur la map principal.
+
+-Aussi, on a les deux getter geyGitPath() et getPluginConfigs() . 
+
+------------------------------------------------------------------------------------------------
+2.PluginConfig.java 
+Ici , on doit définir le type qu'il faut être (peut être un Map ) .  
+--------------------------------------------------------------------------------------------
+3.TestConfiguration.java :
+ce fichier est pour tester la classe Configuration.
+
+

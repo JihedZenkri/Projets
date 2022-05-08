@@ -1,0 +1,26 @@
+plugins {
+    // Apply the application plugin to add support for building a CLI application in Java and the JavaFX one for...
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+repositories {
+    // Use JCenter for resolving dependencies.
+    jcenter()
+}
+
+dependencies {
+    // Use JUnit test framework.
+    testImplementation "junit:junit:4.13"
+}
+
+application {
+    // Define the main class for the application.
+    // FIXME: if you use this model, please change main class' both name and package!
+    mainClass = 'up.pi4.samples.javafx.Graph'
+}
+
+javafx {
+    version = "15.0.1"
+    modules = [ 'javafx.controls' ]
+}

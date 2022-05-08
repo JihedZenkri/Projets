@@ -1,0 +1,20 @@
+@font-face {
+    font-family: reco;
+    src: url('recoleta.ttf');
+}
+
+.list-view{
+    -fx-border-width: 5px;
+    -fx-border-color: #f5d782;
+    -fx-font-family: 'reco';
+}
+.list-view .list-cell:even {
+    -fx-background-color: #2B2E4A;
+    -fx-text-fill: white;
+    -fx-font-family: 'reco';
+    
+}
+.list-view .list-cell:odd {
+    -fx-background-color: #2B2E4A;   
+    -fx-text-fill: white;
+}

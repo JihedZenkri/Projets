@@ -1,0 +1,30 @@
+List of all TODOs : 
+
+Analyser/Analyser.java : 
+ 	TODO: try running them in parallel 
+ 	TODO: find a way so that the list of plugins is not hardcoded in this factory
+
+
+
+Cli/
+  CLILauncher.java : 
+	TODO: parse argument and make an instance of PluginConfig
+	TODO: (load options from a file)
+	TODO:(save command line options to a file instead of running the analysis)
+	TODO: print the list of options and their syntax
+
+TestCLILauncher.java: 
+	 TODO:one can also add integration tests here:
+         -run the whole program with some valid options and look whether the output has a valid format
+  	 - run the whole program with bad command and see whether something that looks like help is printed
+
+
+
+
+Config/ PluginConfig.java : 
+	TODO: define what this type should be (probably a Map: settingKey -> settingValue)
+
+gitrawdata.java/Commit.java : 
+	TODO:factor this out (similar code will have to be used for all git commands)
+	TODO: warn the user that some field was ignored
+	FIXME:(some of ) these fieds could have more specialized types than String .  

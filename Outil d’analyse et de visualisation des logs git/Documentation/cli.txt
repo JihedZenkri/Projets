@@ -1,0 +1,13 @@
+Documentation CLILauncher.java
+
+Premiere fonction est une fonction main. 
+Elle appelle la deuxieme fonction en lui donnant les parametres arguments.
+Elle créé un nouvel objet analyzer avec le config qui était envoyé par la fonction precedente. Et elle donne les resultats de l'analyse en HTML.
+
+La deuxieme fonction est Optional<Configuration> makeConfigFromCommandLineArgs(String[] args).
+Elle va donc analyser chaque argument et elle va faire des actions selon chaque argument.
+Il y a trois cas d'argument possible: 
+	1-"--addPlugin" ==> mettre la config (toutes les options pour analyser)
+		pour l'instant il contient que "countCommits" qui a sera gerer par l'analyser
+	2-"--loadConfigFile" ==> reprendre la config et la sauvgarder
+	3-"--justSaveConfigFile" ==> enregistrer la configuration 
