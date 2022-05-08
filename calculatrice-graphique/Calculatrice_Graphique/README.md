@@ -47,20 +47,14 @@ De là, Jihed a pu rajouter un zoom, symbolisé par un slider et Charles a rajou
 
 ### Pour lancer la calculatrice
 
-1.  Cloner le repository
+clone https://gaufre.informatique.univ-paris-diderot.fr/zenkri/calculatrice-graphique-.git
     ```
-    git clone git@gaufre.informatique.univ-paris-diderot.fr:zenkri/calculatrice-graphique-.git
-    ```
-    ou 
-    ```
-    git clone https://gaufre.informatique.univ-paris-diderot.fr/zenkri/calculatrice-graphique-.git
-    ```
-2.  Rentrer sur le dossier du projet
+1.  Rentrer sur le dossier du projet
     ```
     cd Calculatrice_Graphique
     ```
 
-3.  Lancer Gradle et ses dépendances
+2.  Lancer Gradle et ses dépendances
     ```
     ./gradlew build
     ```
